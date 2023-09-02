@@ -46,22 +46,46 @@ copyBtn.addEventListener("click", () => {
 
 
 
-const timerElement = document.getElementById('timer');
-const startButton = document.getElementById('start-button');
-const progressBar = document.getElementById('progress-bar');
+const audioPlayer = document.getElementById('audio-player');
+const playPauseButton = document.getElementById('play-pause-button');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
 
-let isExerciseActive = false;
-let exerciseTimeout;
+let currentAudioIndex = 0;
 
-function startOrStopBreathing() {
-    if (isExerciseActive) {
-        stopBreathingExercise();
+const audioSources = [
+    './assets/azaan.mp3',
+    './assets/sheikhatif.mp3',
+    './assets/surahZuha.mp3',
+    './assets/nasheed.mp3'
+];
+
+function playPauseAudio() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPauseButton.textContent = 'Pause';
     } else {
-        startButton.style.display = 'none';
-        timerElement.style.display = 'block';
-        startBreathingExercise();
+        audioPlayer.pause();
+        playPauseButton.textContent = 'Play';
     }
 }
+
+function playNextAudio() {
+    currentAudioIndex = (currentAudioIndex + 1) % audioSources.length;
+    audioPlayer.src = audioSources[currentAudioIndex];
+    audioPlayer.play();
+}
+
+function playPreviousAudio() {
+    currentAudioIndex = (currentAudioIndex - 1 + audioSources.length) % audioSources.length;
+    audioPlayer.src = audioSources[currentAudioIndex];
+    audioPlayer.play();
+}
+
+playPauseButton.addEventListener('click', playPauseAudio);
+nextButton.addEventListener('click', playNextAudio);
+prevButton.addEventListener('click', playPreviousAudio);
+
 
 function startBreathingExercise() {
     isExerciseActive = true;
