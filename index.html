@@ -2,47 +2,72 @@
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">  
+    <meta charset="utf-8" />
     <title>Random Quote Generator in JavaScript| CodingNepal</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
   <body>
     <div class="container">
-        <h1 id="welcome">Welcome To Depression Relief</h1>
-        <div class="wrapper">
-          <header>Quote of the Day</header>
-          <div class="content">
-            <div class="quote-area">
-              <i class="fas fa-quote-left"></i>
-              <p class="quote">Never give up because you never know if the next try is going to be the one that works.</p>
-              <i class="fas fa-quote-right"></i>
-            </div>
-          </div>
-          <div class="buttons">
-            <div class="features">
-              <ul>
-                <li class="copy"><i class="fas fa-copy"></i></li>
-              </ul>
-              <button>New Quote</button>
-            </div>
+      <h1 id="welcome">Welcome To Depression Relief</h1>
+      <div class="wrapper">
+        <header>Quote of the Day</header>
+        <div class="content">
+          <div class="quote-area">
+            <i class="fas fa-quote-left"></i>
+            <p class="quote">
+              Never give up because you never know if the next try is going to
+              be the one that works.
+            </p>
+            <i class="fas fa-quote-right"></i>
           </div>
         </div>
-        <!-- ================================================================ -->
-        <div class="exercise_wrapper">
-            
+        <div class="buttons">
+          <div class="features">
+            <ul>
+              <li class="copy"><i class="fas fa-copy"></i></li>
+            </ul>
+            <button>New Quote</button>
+          </div>
         </div>
+      </div>
+      <!-- ================================================================ -->
+      <div class="music_container">
+        <h1>Relax Yourself Immediately</h1>
+        <p>Close your eyes and feel</p>
+        <div class="music-player">
+            <audio id="audio-player" controls>
+                <source src="./assets/azaan.mp3" type="audio/mpeg">
+                <source src="./assets/sheikhatif.mp3" type="audio/mpeg">
+                <source src="./assets/surahZuha.mp3" type="audio/mpeg">
+                <source src="./assets/nasheed.mp3" type="audio/mpeg">
+            </audio>
+            <div class="controls">
+                <button id="prev-button">Previous</button>
+                <button id="play-pause-button">Play</button>
+                <button id="next-button">Next</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+            <h1>4-7-8 Breathing Exercise</h1>
+            <button id="start-button" onclick="startOrStopBreathing()">Start</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="timer" id="timer">Breathe in...</div>
+        </div>
+      </div>
+
+
+
     </div>
-
-
-
-
-
-
-
-
-
 
     <script src="script.js"></script>
   </body>

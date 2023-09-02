@@ -33,3 +33,78 @@ const copyBtn = document.querySelector(".copy");
 copyBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(quoteText.innerText);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+const timerElement = document.getElementById('timer');
+const startButton = document.getElementById('start-button');
+const progressBar = document.getElementById('progress-bar');
+
+let isExerciseActive = false;
+let exerciseTimeout;
+
+function startOrStopBreathing() {
+    if (isExerciseActive) {
+        stopBreathingExercise();
+    } else {
+        startButton.style.display = 'none';
+        timerElement.style.display = 'block';
+        startBreathingExercise();
+    }
+}
+
+function startBreathingExercise() {
+    isExerciseActive = true;
+    timerElement.textContent = 'Breathe in...';
+    animateProgressBar(4000, () => {
+        timerElement.textContent = 'Hold...';
+        animateProgressBar(7000, () => {
+            timerElement.textContent = 'Exhale...';
+            animateProgressBar(8000, () => {
+                timerElement.textContent = 'Breathe in...';
+                progressBar.style.width = '0%'; // Reset the progress bar width
+                animateProgressBar(4000, () => {
+                    progressBar.style.width = '100%';
+                    timerElement.textContent = 'Hold...';
+                    animateProgressBar(7000, () => {
+                        timerElement.textContent = 'Exhale...';
+                        animateProgressBar(8000, () => {
+                            timerElement.textContent = 'Exercise Complete';
+                            isExerciseActive = false;
+                            startButton.style.display = 'block';
+                            clearTimeout(exerciseTimeout);
+                        });
+                    });
+                });
+            });
+        });
+    });
+}
+
+function stopBreathingExercise() {
+    clearTimeout(exerciseTimeout);
+    isExerciseActive = false;
+    timerElement.textContent = 'Exercise Stopped';
+    startButton.style.display = 'block';
+    progressBar.style.width = '0%';
+}
+
+function animateProgressBar(duration, callback) {
+    progressBar.style.transition = `width ${duration}ms linear`;
+    progressBar.style.width = '100%';
+    setTimeout(() => {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        if (callback) callback();
+    }, duration);
+}
