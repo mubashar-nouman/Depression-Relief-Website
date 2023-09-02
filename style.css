@@ -35,6 +35,7 @@ body {
     background: #fff;
     border-radius: 15px;
     padding: 30px 30px 25px;
+    margin-top: 1rem;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
 }
 
@@ -219,4 +220,15 @@ button {
     background-color: #00cc66;
     border-radius: 5px;
     transition: width 0.2s ease;
+}
+
+.dua_1{
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: rgb(105, 18, 105);
+}
+.trans_1{
+    margin-top: 2rem;
+    font-style: italic;
+    color: #353535;
 }
