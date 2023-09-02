@@ -87,6 +87,23 @@ nextButton.addEventListener('click', playNextAudio);
 prevButton.addEventListener('click', playPreviousAudio);
 
 
+const timerElement = document.getElementById('timer');
+const startButton = document.getElementById('start-button');
+const progressBar = document.getElementById('progress-bar');
+
+let isExerciseActive = false;
+let exerciseTimeout;
+
+function startOrStopBreathing() {
+    if (isExerciseActive) {
+        stopBreathingExercise();
+    } else {
+        startButton.style.display = 'none';
+        timerElement.style.display = 'block';
+        startBreathingExercise();
+    }
+}
+
 function startBreathingExercise() {
     isExerciseActive = true;
     timerElement.textContent = 'Breathe in...';
